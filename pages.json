@@ -1,0 +1,112 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "垃圾分类"
+			}
+		}, {
+			"path": "pages/shop/shop",
+			"style": {
+				"navigationBarTitleText": "小商店",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/classification/classification",
+			"style": {
+				"navigationBarTitleText": "分类介绍",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/article/article",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/classification/Introduction",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/shop/shop",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "商品列表"
+			}
+
+		}
+         
+        ,{
+            "path" : "pages/shop/details",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/activeHome-copy.png",
+				"selectedIconPath": "static/images/selected/activeHome-copy.png",
+				"text": "首页"
+			}, {
+				"pagePath": "pages/classification/classification",
+				"iconPath": "static/images/lajifenlei.png",
+				"selectedIconPath": "static/images/selected/lajifenlei.png",
+				"text": "分类"
+			},
+			{
+				"pagePath": "pages/shop/shop",
+				"iconPath": "static/images/open shop.svg",
+				"selectedIconPath": "static/images/selected/open shop.svg",
+				"text": "环保商店"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"iconPath": "static/images/open shop.svg",
+				"selectedIconPath": "static/images/selected/open shop.svg",
+				"text": "我的"
+			}
+		]
+	}
+
+
+}
