@@ -19,7 +19,7 @@
 			<u-empty  mode="search"></u-empty>
 		</view>
 		<view  class="myBt2" v-for="(item, index) in reslut">
-			<button v-if="item.type==1" class="myBt button-glow button-border button-rounded button-primary" type="default" @click="goto(index, item.type)">{{item.name}} [可]</button>
+			<button v-if="item.type==1" class="myBt button button-glow button-border button-rounded button-primary" type="default" @click="goto(index, item.type)">{{item.name}} [可]</button>
 			<button v-if="item.type==2" class="myBt button button-glow button-border button-rounded button-primary" type="default" @click="goto(index, item.type)">{{item.name}} [害]</button>
 			<button v-if="item.type==3" class="myBt button button-glow button-border button-rounded button-primary" type="default" @click="goto(index, item.type)">{{item.name}} [湿]</button>
 			<button v-if="item.type==4" class="myBt button button-glow button-border button-rounded button-primary" type="default" @click="goto(index, item.type)">{{item.name}} [干]</button>

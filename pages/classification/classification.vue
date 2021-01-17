@@ -12,7 +12,7 @@
 							<view class="" slot="body">
 								<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 									<view class="u-body-item-title">指的是纸张、废塑料、废玻璃制品、废金属、废织物等适宜回收、可循环利用的生活废弃物</view>
-									<u-image height="210rpx" src="/static/images/可回收垃圾.svg" ></u-image>
+									<u-image height="210rpx" src="/static/images/rb1.png" ></u-image>
 								</view>
 								<view class="u-body-item u-flex u-row-between u-p-b-0">
 									<view class="u-body-item-title u-line-2">
@@ -54,7 +54,7 @@
 							<view class="" slot="body">
 								<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 									<view class="u-body-item-title ">指废电池、废灯管、废药品、废油漆及其容器等对人体健康或者自然环境造成直接或者潜在危害的生活废弃物</view>
-									<u-image height="210rpx" src="/static/images/有害垃圾.svg" ></u-image>
+									<u-image height="210rpx" src="/static/images/rb2.png" ></u-image>
 								</view>
 
 								
@@ -65,6 +65,7 @@
 											<uni-list-item title="1.投放时注意轻放"></uni-list-item>
 											<uni-list-item title="2.易破损的请连带包装或者包裹后轻放"></uni-list-item>
 											<uni-list-item title="3.如易挥发,请密封后投放"></uni-list-item>
+											<uni-list-item title="4.在公共场所产生有害垃圾且并未发现对应收集容器时，应将有害垃圾携带至设置有害垃圾收集容器的地点妥善投放"></uni-list-item>
 										</uni-list>
 									</view>
 								</view>
@@ -95,7 +96,7 @@
 							<view class="" slot="body">
 								<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 									<view class="u-body-item-title ">即易腐败的垃圾，指食材废料、剩菜剩饭、过期食品、瓜皮果核、花卉绿植、中药药渣等易腐败的生物质生活废弃物</view>
-									<u-image height="210rpx" src="/static/images/湿垃圾.svg" ></u-image>
+									<u-image height="210rpx" src="/static/images/rb3.png" ></u-image>
 								</view>
 
 			
@@ -133,12 +134,12 @@
 					</scroll-view>
 				</swiper-item>
 				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
+					<scroll-view scroll-y style="height: 100%;width: 100%;" >
 						<u-card title="干垃圾">
 							<view class="" slot="body">
 								<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 									<view class="u-body-item-title ">即其他垃圾，指除了可回收物、有害垃圾、湿垃圾以外的其他的生活废弃物</view>
-									<u-image height="210rpx" src="/static/images/干垃圾.svg" ></u-image>
+									<u-image height="210rpx" src="/static/images/rb4.png" ></u-image>
 								</view>
 
 								<view class="u-body-item u-flex u-row-between u-p-b-0">

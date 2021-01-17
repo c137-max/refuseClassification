@@ -24,11 +24,11 @@
 			</u-card>
 		</view>
 		<view>
-			<u-card title="垃圾分类小知识">
+			<u-card title="垃圾分类热点">
 				<view class="" slot="body">
 					<view class="u-border-bottom " v-for="(item, index) in articles" :key="item.title">
 						<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
-							<view @click="see_article(item.id)" :id="item.id" class="u-body-item-title u-line-2">{{index+1}}. {{item.title}}</view>
+							<view @click="see_article(item.url)" :id="item.url" class="u-body-item-title u-line-2">{{index+1}}. {{item.title}}</view>
 							<u-icon name="shucai" custom-prefix="custom-icon" size="43"></u-icon>
 						</view>
 					</view>
@@ -52,16 +52,23 @@
 		},
 		onShow() {
 			this.articles = [{
-					title: "为什么要进行垃圾分类",
-					id: 1
+					title: "中国进入垃圾分类“强制时代”_滚动新闻_中国政府网",
+					url: "http://www.gov.cn/xinwen/2019-06/24/content_5402650.htm"
 				},
 				{
-					title: "垃圾分类的好处",
-					id: 2
+					title: "垃圾分类：“新时尚”的美丽折射_滚动新闻_中国政府网",
+					url: "http://www.gov.cn/xinwen/2019-08/20/content_5422720.htm"
+				},{
+					title: "全国各地因地制宜有序推进生活垃圾分类_滚动新闻_中国政府网",
+					url: "http://www.gov.cn/xinwen/2020-12/15/content_5569466.htm"
 				},
 				{
-					title: "“垃圾分类,我先行”倡议书【精选】",
-					id: 3
+					title: "垃圾分类：从步履维艰到层层推进 _ 滚动新闻 _中国政府网",
+					url: "http://www.gov.cn/xinwen/2018-03/16/content_5274585.htm"
+				},
+				{
+					title: "深圳垃圾分类正式进入“强制分类”时代_滚动新闻_中国政府网",
+					url: "http://www.gov.cn/xinwen/2020-09/01/content_5539091.htm"
 				},
 			]
 		},
@@ -83,11 +90,11 @@
 					}
 				})
 			},
-			see_article(id) {
-				console.log(id)
+			see_article(url, title) {
+				console.log({url, title})
 				uni.setStorage({
 					key: "article",
-					data: id,
+					data: {url, title},
 					success() {
 						uni.navigateTo({
 							url: "../article/article"

@@ -1,48 +1,42 @@
 <template>
-	<view class="list">
-		<!-- 基于 uni-list 的页面布局 -->
-		<uni-list class="uni-list--waterfall">
-			<uni-list-item :border="true" class="uni-list-item--waterfall" title="环保商品" v-for="item in data" :key="item._id">
-				<!-- 通过header插槽定义列表左侧图片 -->
+	<view>
+		<view class="list">
+			<!-- 基于 uni-list 的页面布局 -->
+			<uni-list class="uni-list--waterfall">
+				<uni-list-item :border="true" class="uni-list-item--waterfall" title="环保商品" v-for="item in data">
+					<!-- 通过header插槽定义列表左侧图片 -->
+					<template v-slot:header>
+						<navigator :url="'/pages/shop/details?url='+item.url">
+							<view class="uni-thumb shop-picture shop-picture-column">
+								<image :src="item.goods_thumb" mode="aspectFill"></image>
+							</view>
+						</navigator>
+					</template>
 
-				<template v-slot:header>
-					<navigator :url="'/pages/shop/details?id='+item.goods_sn">
-						<view class="uni-thumb shop-picture shop-picture-column">
-							<image :src="item.goods_thumb" mode="aspectFill"></image>
-						</view>
-					</navigator>
-				</template>
+					<!-- 通过body插槽定义商品布局 -->
+					<view slot="body" class="shop">
+						<view>
+							<view class="uni-title">
+								<navigator :url="'/pages/shop/details?url='+item.url">
+									<text class="uni-ellipsis-2">{{ item.name }}</text>
+								</navigator>
 
-				<!-- 通过body插槽定义商品布局 -->
-				<view slot="body" class="shop">
-					<view>
-						<view class="uni-title">
-							<navigator :url="'/pages/shop/details?id='+item.goods_sn">
-								<text class="uni-ellipsis-2">{{ item.name }}</text>
-							</navigator>
-
+							</view>
 						</view>
 						<view>
-							<text class="uni-tag hot-tag">{{ item.goods_tip }}</text>
-							<text v-for="tag in item.tag" :key="tag" class="uni-tag">{{ tag }}</text>
+							<view class="shop-price">
+								<text>¥</text>
+								<text class="shop-price-text">{{ item.goods_price }}</text>
+								<text>.00</text>
+							</view>
+							<view class="uni-note ellipsis">
+								<text class="uni-ellipsis-1">{{ item.shop_name }}</text>
+							</view>
 						</view>
 					</view>
-					<view>
-						<view class="shop-price">
-							<text>¥</text>
-							<text class="shop-price-text">{{ item.goods_price }}</text>
-							<text>.00</text>
-						</view>
-						<view class="uni-note">{{ item.comment_count }}条评论 月销量 {{ item.month_sell_count }}</view>
-						<view class="uni-note ellipsis">
-							<text class="uni-ellipsis-1">{{ item.shop_name }}</text>
-							<text class="uni-link" @click="add_to_cart(item.goods_sn)">加入购物车 ></text>
-						</view>
-					</view>
-				</view>
-			</uni-list-item>
-		</uni-list>
-		<!-- <u-subsection :list="list" :current="1"></u-subsection> -->
+				</uni-list-item>
+			</uni-list>
+		</view>
 	</view>
 </template>
 
@@ -52,16 +46,7 @@
 		data() {
 			return {
 				data: {
-					data: [],
-					list: [{
-						name: '待收货'
-					}, {
-						name: '待付款'
-					}, {
-						name: '待评价',
-						count: 5
-					}],
-					current: 0,
+					data: [],					
 				}
 			};
 		},
@@ -69,110 +54,42 @@
 			let that = this;
 			that.data = [{
 					"category_id": "", // 分类id
-					"goods_sn": "123", // 商品的唯一货号
-					"name": "环保手提袋", // 商品名称
-					"keywords": "手机,iPhone", // 商品关键字，为搜索引擎收录使用
-					"goods_desc": "", // 商品详细描述
-					"goods_thumb": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
-					"goods_banner_imgs": "", // 商品详情页的banner图地址
-					"goods_price": "9999", // 商品价格
-					"remain_count": "999999", // 库存数量
-					"month_sell_count": "640", // 月销量
-					"total_sell_count": "28512", // 总销量
-					"comment_count": "980021", // 累计评论数
-					"is_real": true, // 是否实物
-					"is_on_sale": true, // 是否上架销售
-					"is_alone_sale": true, // 是否能单独销售；如果不能单独销售，则只能作为某商品的配件或者赠品销售
-					"is_best": true, // 是否精品
-					"is_new": true, // 是否新品
-					"is_hot": true, // 是否热销
-					"add_date": "2020-8-26 09:37:21", // 上架时间
-					"last_modify_date": "2020-8-26 09:37:21", // 最后修改时间
-					"seller_note": "", //商家备注，仅商家可见
-					"shop_name": "环保商城",
-					"tag": ["手机", "iPhone"],
-					"goods_tip": "火爆"
+					"url": "https://m.tb.cn/h.4SPkpOF?sm=516175",
+					"name": "淘宝心选帆布袋", // 商品名称
+					"goods_thumb": "https://img.alicdn.com/imgextra/i4/2201498506788/O1CN01av7WEI200x2oKBoB5_!!0-item_pic.jpg_430x430q90.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+					"shop_name": "虾选旗舰店",
+					"goods_price": "19.9", // 商品价格
 				}, {
-					"category_id": "",
-					"goods_sn": "4",
-					"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
-					"keywords": "手机,iPhone",
-					"goods_desc": "",
-					"goods_thumb": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
-					"goods_banner_imgs": "",
-					"goods_price": "3499",
-					"remain_count": "999999",
-					"month_sell_count": "640",
-					"total_sell_count": "28512",
-					"comment_count": "12",
-					"is_real": true,
-					"is_on_sale": true,
-					"is_alone_sale": true,
-					"is_best": false,
-					"is_new": true,
-					"is_hot": false,
-					"add_date": "2020-8-26 09:37:21",
-					"last_modify_date": "2020-8-26 09:37:21",
-					"seller_note": "",
-					"shop_name": "手机专卖店",
-					"tag": ["手机", "iPhone"],
-					"goods_tip": "优惠"
+					"category_id": "", // 分类id
+					"url": "https://m.tb.cn/h.4RIXFXB",
+					"name": "降解卡通手提袋", // 商品名称
+					"goods_thumb": "https://img.alicdn.com/imgextra/i3/4126938430/O1CN01GZXpdN2C8zTwCEyjV_!!4126938430.jpg_600x600.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+					"shop_name": "思华旭昌数码专营店",
+					"goods_price": "55.6", // 商品价格
 				},
 				{
-					"category_id": "",
-					"goods_sn": "5",
-					"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
-					"keywords": "手机,iPhone",
-					"goods_desc": "",
-					"goods_thumb": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
-					"goods_banner_imgs": "",
-					"goods_price": "3499",
-					"remain_count": "999999",
-					"month_sell_count": "640",
-					"total_sell_count": "28512",
-					"comment_count": "12",
-					"is_real": true,
-					"is_on_sale": true,
-					"is_alone_sale": true,
-					"is_best": false,
-					"is_new": true,
-					"is_hot": false,
-					"add_date": "2020-8-26 09:37:21",
-					"last_modify_date": "2020-8-26 09:37:21",
-					"seller_note": "",
-					"shop_name": "手机专卖店",
-					"tag": ["手机", "iPhone"],
-					"goods_tip": "优惠"
-				}, {
-					"category_id": "",
-					"goods_sn": "6",
-					"name": "Apple iPad 平板电脑 2018年新款9.7英寸",
-					"keywords": "手机,iPhone",
-					"goods_desc": "",
-					"goods_thumb": "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg",
-					"goods_banner_imgs": "",
-					"goods_price": "3499",
-					"remain_count": "999999",
-					"month_sell_count": "640",
-					"total_sell_count": "28512",
-					"comment_count": "12",
-					"is_real": true,
-					"is_on_sale": true,
-					"is_alone_sale": true,
-					"is_best": false,
-					"is_new": true,
-					"is_hot": false,
-					"add_date": "2020-8-26 09:37:21",
-					"last_modify_date": "2020-8-26 09:37:21",
-					"seller_note": "",
-					"shop_name": "手机专卖店",
-					"tag": ["手机", "iPhone"],
-					"goods_tip": "优惠"
+					"category_id": "", // 分类id
+					"url": "https://m.tb.cn/h.4RI3vlD",
+					"name": "苏泊尔智能保温杯", // 商品名称
+					"goods_thumb": "https://img.alicdn.com/imgextra/https://img.alicdn.com/imgextra/i1/2157661959/O1CN01kbg8p11QLGXh2ssXv_!!2157661959.jpg_430x430q90.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+					"shop_name": "苏泊尔餐具旗舰店",
+					"goods_price": "229", // 商品价格
+				},
+				{
+					"category_id": "", // 分类id
+					"url": "https://m.tb.cn/h.4RIf5RP?sm=0dfdff",
+					"name": "垃圾桶家用带盖分类", // 商品名称
+					"goods_thumb": "https://img.alicdn.com/imgextra/i3/1902449617/O1CN01SD9or92KudXV9xzw7_!!0-item_pic.jpg", // 商品缩略图，用于在列表或搜索结果中预览显示
+					"shop_name": "凯乐居旗舰店",
+					"goods_price": "59.8", // 商品价格
 				},
 			]
 		},
 
-		onLoad() {},
+		onLoad() {
+			let that = this;
+			
+		},
 		methods: {
 			change(index) {
 				this.current = index;
@@ -186,6 +103,49 @@
 
 <style lang="scss">
 	@import '@/common/uni-ui.scss';
+	
+	.navigation {
+		display: flex;
+		margin-top: 100rpx;
+		border: solid 2rpx #f2f2f2;
+		background-color: #ffffff;
+		padding: 16rpx 0;
+		.left {
+			display: flex;
+			font-size: 20rpx;
+			.item {
+				margin: 0 30rpx;
+				&.car {
+					text-align: center;
+					position: relative;
+					.car-num {
+						position: absolute;
+						top: -10rpx;
+						right: -10rpx;
+					}
+				}
+			}
+		}
+		.right {
+			display: flex;
+			font-size: 28rpx;
+			align-items: center;
+			.btn {
+				line-height: 66rpx;
+				padding: 0 30rpx;
+				border-radius: 36rpx;
+				color: #ffffff;
+			}
+			.cart {
+				background-color: #ed3f14;
+				margin-right: 30rpx;
+			}
+			.buy {
+				background-color: #ff7900;
+			}
+		}
+	}
+	
 
 	page {
 		display: flex;

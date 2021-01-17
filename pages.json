@@ -46,7 +46,7 @@
 		}, {
 			"path": "pages/shop/shop",
 			"style": {
-				"enablePullDownRefresh": true,
+				"enablePullDownRefresh": false,
 				"navigationBarTitleText": "商品列表"
 			}
 
@@ -56,8 +56,8 @@
             "path" : "pages/shop/details",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationBarTitleText": "商品详情"
             }
             
         }
@@ -65,7 +65,61 @@
             "path" : "pages/my/my",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "我的",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "欢迎登录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/logon",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "注册",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/ForgetPassWord",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "忘记密码",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/ad",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/concatME",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "联系",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/advice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "建议",
                 "enablePullDownRefresh": false
             }
             
@@ -95,14 +149,14 @@
 			},
 			{
 				"pagePath": "pages/shop/shop",
-				"iconPath": "static/images/open shop.svg",
-				"selectedIconPath": "static/images/selected/open shop.svg",
+				"iconPath": "static/images/shop.png",
+				"selectedIconPath": "static/images/selected/shop.png",
 				"text": "环保商店"
 			},
 			{
 				"pagePath": "pages/my/my",
-				"iconPath": "static/images/open shop.svg",
-				"selectedIconPath": "static/images/selected/open shop.svg",
+				"iconPath": "static/images/my.png",
+				"selectedIconPath": "static/images/selected/my.png",
 				"text": "我的"
 			}
 		]
